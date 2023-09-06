@@ -21,11 +21,15 @@ const Countries = () => {
                 {/* Lorsqu'on manipulera l'input, le nombre de drapeaux affichés sera modifié dynamiquement grâce à setRangeValue */}
                 {radios.map((continent, index) => (
                     <li key={index}>
-                        <input type="radio" name="continentRadio" id={continent} onChange={(e) => setSelectedRadio(e.target.id)} />
+                        <input type="radio" name="continentRadio" id={continent} onChange={(e) => setSelectedRadio(e.target.id)} checked={continent === selectedRadio} />
                         <label htmlFor={continent}>{continent}</label>
                     </li>
                 ))}
             </ul>
+            {/* On désactive le filtrage si on clique sur le bouton */}
+            {selectedRadio && (
+                <button onClick={() => setSelectedRadio("")}>Annuler la recherche</button>
+            )}
             <ul>
                 {
                     data
