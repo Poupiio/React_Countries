@@ -30,6 +30,7 @@ const Countries = () => {
                 {
                     data
                     .filter((country) => country.continents[0].includes(selectedRadio))   // tous les pays qui auront le continent sélectionné par l'input radio seront affichés
+                    .sort((a, b) => b.population - a.population)
                     .slice(0, rangeValue)
                     .map((country, index) => (
                         <Card key={index} country={country} />
