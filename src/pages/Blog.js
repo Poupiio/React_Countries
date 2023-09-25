@@ -48,9 +48,12 @@ const Blog = () => {
                 <input type="submit" value="Envoyer" />
             </form>
             <ul>
-                {blogData.map((article) => (
-                    <Article key={article.id} article={article} />
-                ))}
+                {/* On classe les articles du plus récent au plus ancien */}
+                {blogData
+                    .sort((a, b) => b.date - a.date)
+                    .map((article) => (
+                        <Article key={article.id} article={article} />
+                    ))}
             </ul>
         </div>
     );
